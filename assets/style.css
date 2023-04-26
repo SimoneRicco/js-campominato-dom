@@ -1,0 +1,44 @@
+/* reset */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* settings */
+header{
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    background-color: gray;
+}
+body{
+    background-color: aqua;
+}
+.grid{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.start-message{
+    margin: auto;
+}
+.element{
+    border: 1px solid black;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.easy{
+    width: calc(100% / 10);
+}
+.medium{
+    width: calc(100% / 9);
+}
+.hard{
+    width: calc(100% / 7);
+}
+.clicked{
+    background-color: dodgerblue;
+}
