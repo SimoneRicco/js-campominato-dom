@@ -5,6 +5,7 @@ const nBombs = 16;
 let bombList = [];
 let currentModeCells = 0;
 let points = 0;
+let clickedList = [];
 const pointArea = document.querySelector(".score");
 document.querySelector("#play").addEventListener("click", function () {
     reset();
@@ -26,16 +27,19 @@ document.querySelector("#play").addEventListener("click", function () {
     for (let i = 0; i < listCells.length; i++) {
         const cell = listCells[i];
         cell.addEventListener('click',
-            function colorCell() {
-                console.log("Number " + (i + 1));
-                if (bombList.includes(i)) {
-                    this.classList.add('bomb');
-                    endGame(listCells, bombList, points);
-                } else {
-                    this.classList.add('clicked');
-                    points++;
-                    if (currentModeCells - nBombs == points) {
+        function colorCell() {
+            if (!clickedList.includes(i)) {//check double click
+                    console.log("Number " + (i + 1));
+                    if (bombList.includes(i)) {
+                        this.classList.add('bomb');
                         endGame(listCells, bombList, points);
+                    } else {
+                        this.classList.add('clicked');
+                        points++;
+                        clickedList.push(i);
+                        if (currentModeCells - nBombs == points) {
+                            endGame(listCells, bombList, points);
+                        }
                     }
                 }
             }
@@ -47,6 +51,7 @@ function reset() {
     pointArea.innerHTML = ""
     points = 0;
     bombList = [];
+    clickedList = [];
 }
 
 function endGame(cellList, bombList) {
@@ -57,7 +62,7 @@ function endGame(cellList, bombList) {
     }
     if (currentModeCells - nBombs == points) {
         pointArea.innerHTML = "Hai vinto";
-    }else{
+    } else {
         pointArea.innerHTML = `Hai fatto un punteggio di: ${points}`;//segna il punteggio
     }
 }
