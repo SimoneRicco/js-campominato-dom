@@ -52,6 +52,7 @@ function reset() {
     points = 0;
     bombList = [];
     clickedList = [];
+    document.querySelector("main").classList.remove("freeze");
 }
 
 function endGame(cellList, bombList) {
@@ -65,6 +66,7 @@ function endGame(cellList, bombList) {
     } else {
         pointArea.innerHTML = `Hai fatto un punteggio di: ${points}`;//segna il punteggio
     }
+    document.querySelector("main").classList.add("freeze");
 }
 
 function generateCells(nCells, gm) {

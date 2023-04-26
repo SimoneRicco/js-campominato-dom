@@ -52,3 +52,6 @@ main{
     text-align: center;
     font-size: 3rem;
 }
+.freeze{
+    pointer-events: none;
+}
