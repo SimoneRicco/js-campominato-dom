@@ -42,3 +42,13 @@ body{
 .clicked{
     background-color: dodgerblue;
 }
+main{
+    padding: 2rem 0;
+}
+.bomb{
+    background-color: red;
+}
+.score{
+    text-align: center;
+    font-size: 3rem;
+}
